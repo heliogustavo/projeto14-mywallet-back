@@ -26,7 +26,7 @@ export async function login(req, res) {
     try {
         const user = await db.collection("users").findOne({ email })
         if (!user) return res.status(404).send("E-mail não cadastrado!")
-
+ 
         const isPasswordCorrect = bcrypt.compareSync(password, user.password)
         if (!isPasswordCorrect) return res.status(401).send("Senha incorreta")
 

@@ -1,12 +1,13 @@
 {
   "name": "projeto14-mywallet-back",
-   "type": "module",
-   "main": "./src/app.js",
+  "type": "module",
+  "main": "./src/app.js",
   "scripts": {
     "start": "node ./src/app.js",
     "dev": "npx nodemon ./src/app.js"
-    },
+  },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "db": "^5.0.0",
     "dotenv": "^16.3.1",
@@ -15,6 +16,7 @@
     "mongo": "^0.1.0",
     "mongodb": "^6.3.0",
     "nodemon": "^3.0.2",
+    "uuid": "^9.0.1",
     "y": "^0.3.2"
   }
 }
