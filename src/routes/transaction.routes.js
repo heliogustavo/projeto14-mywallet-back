@@ -8,7 +8,7 @@ const transactionRouter = Router()
 
 transactionRouter.post("/transactions", authValidation, schemaValidation(transactionSchema), createTransaction)
 transactionRouter.get("/transactions", authValidation, getTransactions)
-transactionRouter.delete("/transactions/:id", deleteTransaction)
+transactionRouter.delete("/transactions/:id",authValidation, deleteTransaction)
 transactionRouter.put("/transactions/:id", schemaValidation(transactionSchema), editTransaction)
 
 

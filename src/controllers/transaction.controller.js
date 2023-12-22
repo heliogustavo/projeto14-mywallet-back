@@ -1,5 +1,6 @@
 import dayjs from "dayjs"
 import { db } from "../database/db.connection.js"
+import { ObjectId } from "mongodb"
 
 export async function createTransaction(req, res) {
     const { value, description, type } = req.body
@@ -35,14 +36,15 @@ export async function deleteTransaction(req, res) {
     if (!id) return res.sendStatus(404)
     
     const { userId } = res.locals.session
+    console.log(2, userId)
 
     try {
         const result = await db
             .collection("transactions")
             .deleteOne({ _id: new ObjectId(id), userId })
-
+            console.log(3, result)
         if (result.deletedCount === 0) return res.sendStatus(404)
-        res.sendStatus(202)
+        res.sendStatus(200)
     } catch (err) {
         res.status(500).send(err.message)
     }
