@@ -38,8 +38,9 @@ export async function logout(req, res) {
         const token = res.locals.session.token 
         try {
                 await db.collection("sessions").deleteOne({ token })
-                res.sendStatus(200)
+                res.sendStatus(200) 
         } catch (err) {
                 res.status(500).send(err.message)
         }
 }
+
