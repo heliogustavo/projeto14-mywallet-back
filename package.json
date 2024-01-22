@@ -9,6 +9,9 @@
     "start": "node ./src/app.js",
     "dev": "npx nodemon app.js"
   },
+  "vercel": {
+    "builds": [{ "src": "./src/app.js", "use": "@vercel/node" }]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
