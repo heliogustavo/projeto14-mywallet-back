@@ -1,7 +1,7 @@
-import Joi from "joi";
+import Joi from "joi"
 
 export const transactionSchema = Joi.object({
-    value: Joi.number().positive().required(),
+    value: Joi.number().positive().precision(2).required(),
     description: Joi.string().required(),
-    type: Joi.string().required().valid("icome", "expense") //isso vai validar se a transição foi renda ou despesa
+    type: Joi.string().required().valid("income", "expense")
 })
